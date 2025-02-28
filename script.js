@@ -1,9 +1,8 @@
-// تأثير الكتابة المتحركة في العنوان
 document.addEventListener("DOMContentLoaded", function () {
     let title = document.querySelector("header h1");
     let text = title.innerText;
     title.innerText = "";
-    
+
     let i = 0;
     function typeWriter() {
         if (i < text.length) {
@@ -15,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     typeWriter();
 });
 
-// تأثير عند الضغط على زر التحميل
+// تأثير زر التحميل عند النقر
 document.querySelector(".download-btn").addEventListener("click", function (event) {
     event.preventDefault();
     let button = this;
@@ -30,16 +29,14 @@ document.querySelector(".download-btn").addEventListener("click", function (even
     }, 1500);
 });
 
-// تأثير الظهور عند التمرير (للميزات)
+// تأثير ظهور الميزات عند التمرير
 document.addEventListener("scroll", function () {
-    let features = document.querySelectorAll(".feature-box");
-    features.forEach((feature) => {
-        let position = feature.getBoundingClientRect().top;
-        let screenHeight = window.innerHeight;
-        
-        if (position < screenHeight - 50) {
-            feature.style.opacity = "1";
-            feature.style.transform = "translateY(0px)";
-        }
-    });
+    let features = document.querySelector(".feature-box");
+    let position = features.getBoundingClientRect().top;
+    let screenHeight = window.innerHeight;
+    
+    if (position < screenHeight - 50) {
+        features.style.opacity = "1";
+        features.style.transform = "translateY(0px)";
+    }
 });
